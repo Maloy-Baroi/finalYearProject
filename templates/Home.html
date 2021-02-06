@@ -1,0 +1,19 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% static 'home.css' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block body %}
+    <div class="container"><a href="{% url 'App_main:home' %}" style="color: #ff0000; text-decoration: none;">Home</a> /
+        <p></p>
+    </div>
+    <div class="container">
+        <a href="" class="typewrite line-1 anim-typewriter" data-period="2000"
+           data-type='[ "শৃঙ্খলা নিরাপত্তা প্রগতি - বাংলাদেশ পুলিশ", "Discipline Security Progress - Bangladesh Police" ]'
+           style="text-decoration: none; color: #ffffff">
+            <span class="wrap"></span>
+        </a>
+    </div>
+{% endblock %}
+

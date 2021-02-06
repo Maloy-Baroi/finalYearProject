@@ -1,0 +1,34 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Anonymous+Pro");
+
+/* Global */
+
+html {
+    min-height: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+body {
+    color: rgba(255, 255, 255, .75);
+    font-family: 'Anonymous Pro', monospace;
+    background-color: rgb(25, 25, 25);
+    text-align: center;
+}
+
+.edit_form_div {
+    margin-top: 100px;
+    padding: 10px;
+    -moz-box-shadow: inset 0 0 10px #00ffff;
+    -webkit-box-shadow: inset 0 0 10px #00ffff;
+    box-shadow: inset 0 0 10px #00ffff;
+    border: #00ffff 10px;
+}
+
+input{
+    background-color: transparent!important;
+}
+
+input:hover {
+    background-color: #ffffff!important;
+}

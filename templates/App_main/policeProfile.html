@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <title>Police Profile</title>
+</head>
+<body>
+<div>
+    <img src="{% static 'logo/police_logo.png' %}" alt="Symbol" class="logo">
+</div>
+<div class="container"><a href="{% url 'App_main:home' %}" style="color: #ff0000; text-decoration: none;">Home</a> /
+    <h3>Profile</h3>
+</div>
+<div class="container banner_786">
+    <div class="main">
+        <div class="row">
+            <div class="col-3">
+                {% if user.photo %}
+                    <img src="{{ user.photo.url }}" alt="profile picture"
+                         style="height: 200px; width: 200px">
+                {% else %}
+                    <img src="{% static 'profile_picture/default-picture_01.png' %}"
+                         alt="default profile picture" style="height: 200px; width: 200px">
+                {% endif %}
+            </div>
+
+            <div class="col-6">
+                <p><b>Full Name:</b> {{ user.display_name }}</p>
+                <p><b>Position:</b> {{ user.police.position }}</p>
+                <p><b>Email:</b> {{ user.email }}</p>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <div style="text-align: right">
+        <a href="{% url 'App_main:edit-profile' %}"
+           class="btn btn-outline-info edit_profile">Edit Profile</a>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+</body>
+</html>

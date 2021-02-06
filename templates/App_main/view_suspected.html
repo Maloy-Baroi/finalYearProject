@@ -1,0 +1,53 @@
+{% extends "Base.html" %}
+{% load static %}
+{% block title %}
+    view records
+{% endblock %}
+{% block body %}
+    <div><a href="{% url 'App_main:home' %}" style="color: #ff0000; text-decoration: none;">Home</a> /
+        <p>View Records</p>
+    </div>
+    <div class="main-content-inner">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title" style="color: #0056ff">Suspected Informations</h4>
+                        {% if messages %}
+                            <div class="span12">
+                                {% for message in messages %}
+                                    <div class="alert alert-success">
+                                        {{ message|safe }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="table bg-transparent text-danger">
+                            <table id="dataTable3" class="table text-center">
+                                <thead class="text-capitalize">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>National ID</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for w in wanted %}
+                                    <tr>
+                                        <td>{{ w.name }}</td>
+                                        <td>{{ w.national_id }}</td>
+                                        <td>{{ w.address }}</td>
+                                        <td>{{ w.status }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Dark table end -->
+        </div>
+    </div>
+{% endblock %}

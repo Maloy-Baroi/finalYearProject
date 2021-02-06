@@ -1,0 +1,54 @@
+{% extends 'Base.html' %}
+{% block title %}
+    Report Register
+{% endblock %}
+{% block body %}
+    <div><a href="{% url 'App_main:home' %}" style="color: #ff0000; text-decoration: none;">Home</a> /
+        <p>Report Register</p>
+    </div>
+    <!-- page title area end -->
+
+    <div class="card-body">
+        <h4 class="header-title" style="color: #ff0000">Add Report</h4>
+        {% if messages %}
+            <div class="span12">
+                {% for message in messages %}
+                    <div class="alert alert-danger">
+                        {{ message|safe }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br/>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="example-text-input" class="col-form-label">Name</label>
+                <input class="form-control" type="text" name="name" id="example-text-input"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="example-url-input" class="col-form-label">National ID</label>
+                <input class="form-control" type="text" name="national_id"
+                       id="example-url-input" required>
+            </div>
+            <div class="form-group">
+                <label for="example-email-input" class="col-form-label">Address</label>
+                <input class="form-control" type="text" name="address" id="example-email-input"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="example-tel-input" class="col-form-label">Picture</label>
+                <input class="form-control" type="file" name="image" id="example-tel-input"
+                       required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- main content area end -->
+{% endblock %}
